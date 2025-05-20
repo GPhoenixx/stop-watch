@@ -10,7 +10,7 @@ const formatTime = (time: number) => {
 };
 
 export const Stopwatch = () => {
-  const [time, setTime] = useState(0); // elapsed time in ms
+  const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
   const [timeLatest, setTimeLatest] = useState(0);
@@ -113,9 +113,6 @@ export const Stopwatch = () => {
   const fastestLap = laps.length > 1 ? Math.min(...laps.slice(1)) : null;
   const slowestLap = laps.length > 1 ? Math.max(...laps.slice(1)) : null;
 
-  console.log(laps);
-  console.log(fastestLap, slowestLap);
-
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center">
       <div className="w-full max-w-md p-6 rounded flex flex-col items-center">
@@ -146,8 +143,7 @@ export const Stopwatch = () => {
               color = "text-green-400";
             if (idx > 0 && laps[laps.length - idx] === slowestLap)
               color = "text-red-400";
-            // if (idx === laps.length - 1)  color = "text-red-400";
-            // if (idx === 0) color = "text-green-400";
+           
             return (
               <div
                 key={idx}
